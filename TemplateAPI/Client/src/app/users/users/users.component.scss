@@ -1,0 +1,30 @@
+.form-container {
+    display: flex;
+    flex-direction: column;
+  }
+  
+  .form-container > * {
+    width: 100%;
+  }
+
+  .hide-control{
+
+    display: block;
+    visibility: hidden;
+
+  }
+
+.mat-form-field-appearance-outline .mat-form-field-infix {
+    padding: 10px;
+ }
+ .mat-form-field-infix {
+      padding:0;
+      border-top: 0;
+ }
+ 
+ //change top and padding-top as per required
+ 
+ .mat-form-field-label-wrapper {
+     top: -0.84375em;
+     padding-top: 0.84375em;
+ }

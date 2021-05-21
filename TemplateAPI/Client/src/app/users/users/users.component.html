@@ -1,0 +1,114 @@
+
+<mat-dialog-content [formGroup]="form"> 
+  <mat-tab-group mat-align-tabs="start"   style="height:290px;scroll-behavior: auto" >
+    <mat-tab label="Contact Information"  >  
+      <br>
+      <div style="height:200px;scroll-behavior: auto;">
+       
+        <table style="text-size-adjust:15px;">  
+          <tr>  
+              <td>  
+                <mat-form-field >
+                  <input matInput placeholder="Name"               
+                         formControlName="Name"  value="{{data.NAME}}"   >
+                 </mat-form-field>
+              </td>
+              <td>  
+                <mat-form-field>
+                  <input matInput placeholder="Surname"               
+                         formControlName="Surname"  value="{{data.Surname}}"   >
+              </mat-form-field>
+              </td>
+              <td>  
+                <mat-form-field>
+                  <input matInput placeholder="Email"               
+                         formControlName="Email"  value="{{data.Email}}"   >
+              </mat-form-field>
+              </td>
+          </tr>
+          <tr>  
+            <td>  
+              <mat-form-field>
+                <input matInput placeholder="Cell Number"               
+                       formControlName="Phone"  value="{{data.Phone}}"   >
+              </mat-form-field>
+            </td>
+            <td>  
+            
+              <mat-radio-group  [(value)]="selected">
+                <mat-radio-button value="Male">Male</mat-radio-button>         
+                <mat-radio-button value="Female">Female </mat-radio-button>        
+               
+              </mat-radio-group>            
+             
+            </td> 
+                      
+          </tr>
+        </table>
+       
+       </div> 
+    </mat-tab>
+    <mat-tab label="Contact Address">           
+        <br>      
+        <div style="height:220px;scroll-behavior: auto;"> 
+          <br>
+          <mat-radio-group style="font-size:15px;" [(value)]="selected">
+            <mat-radio-button value="1">Residential Address  </mat-radio-button>
+           
+            <mat-radio-button value="2">Work Address  </mat-radio-button>
+            
+            <mat-radio-button value="3">Postal Address  </mat-radio-button>
+          </mat-radio-group>
+          <br>
+          <br>    
+          <table>  
+          
+            <tr>
+              <td>  
+                <mat-form-field>
+                  <input matInput placeholder="Address"               
+                         formControlName="ClientAddress"  value="{{data.ClientAddress}}"   >
+                </mat-form-field>
+              </td>
+              <td>  
+                <mat-form-field>
+                  <input matInput placeholder="Street"               
+                         formControlName="Street"  value="{{data.Street}}"   >
+                </mat-form-field>
+              </td> 
+              <td>  
+                <mat-form-field>
+                  <input matInput placeholder="City"               
+                         formControlName="City"  value="{{data.City}}"   >
+                </mat-form-field>
+              </td> 
+           
+            </tr>
+            <tr>
+              <td> 
+                <mat-form-field>
+                  <input matInput placeholder="Province"               
+                         formControlName="Province"  value="{{data.Province}}"   >
+                </mat-form-field>
+              </td>
+              <td> 
+                <mat-form-field>
+                  <input matInput placeholder="Postal Code"               
+                         formControlName="PostCode"  value="{{data.PostCode}}"   >
+                </mat-form-field>
+              </td>
+            </tr>
+          </table>         
+         </div>       
+    </mat-tab>
+  </mat-tab-group>
+  
+</mat-dialog-content>
+<mat-dialog-actions>
+  <button mat-button color="primary" (click)="save()" >
+     <mat-icon>save</mat-icon> Save
+ </button>
+ <button mat-button color="primary" (click)="closeDialog()">
+     <mat-icon>cancel</mat-icon> Cancel
+ </button>
+ </mat-dialog-actions>

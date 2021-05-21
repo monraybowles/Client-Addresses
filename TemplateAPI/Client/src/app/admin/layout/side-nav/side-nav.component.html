@@ -1,0 +1,76 @@
+<mat-nav-list>
+  <!-- <a
+    *ngFor="let item of routes"
+    mat-list-item
+    [routerLinkActive]="'active'"
+    [routerLink]="['/', item.path]"
+  >
+    <mat-icon class="sidenav-icon">{{ item.data.icon }}</mat-icon>
+    {{ item.data.text }}
+  </a> -->
+  <!-- <a mat-list-item [routerLinkActive]="'active'" [routerLink]="['/dashboard']">
+    <mat-icon class="sidenav-icon">dashboard</mat-icon>Dashboard
+  </a> -->
+  <a mat-list-item [routerLinkActive]="'active'" [routerLink]="['/dashboard']">
+    <mat-icon class="sidenav-icon">dashboard</mat-icon>Dashboard
+  </a>
+
+  <a mat-list-item [routerLinkActive]="'active'" [routerLink]="['/test']">
+    <mat-icon class="sidenav-icon">people</mat-icon>Users
+  </a>
+  <a mat-list-item [routerLinkActive]="'active'" [routerLink]="['/tables']">
+    <mat-icon class="sidenav-icon">people</mat-icon>Clients 
+  </a>
+ 
+  <div class="nested-menu">
+    <a mat-list-item (click)="showMenu = !showMenu">
+      <mat-icon class="sidenav-icon">perm_media</mat-icon>Reports
+    </a>
+    <ul class="nested submenu" [class.expand]="showMenu">
+      <li>
+        <a href="javascript:void(0)" routerLinkActive="active" [routerLink]="'/tables'">
+          <mat-icon class="sidenav-icon">people</mat-icon>All Clients
+        </a>
+      </li>
+      <!-- <li>
+        <a href="javascript:void(0)" routerLinkActive="active" [routerLink]="'/Clients'">
+          <mat-icon class="sidenav-icon">message</mat-icon>Patients Tests
+        </a>
+      </li> -->
+      <!-- <li>
+        <a href="javascript:void(0)">
+          <span>Submenu</span>
+        </a>
+      </li> -->
+    </ul>
+  </div>
+  <a mat-list-item [routerLinkActive]="'active'" >
+    <mat-icon class="sidenav-icon">bar_chart</mat-icon>Charts
+  </a> 
+  <!-- <a mat-list-item [routerLinkActive]="'active'" [routerLink]="['/charts']">
+    <mat-icon class="sidenav-icon">bar_chart</mat-icon>Charts
+  </a>  -->
+ 
+  <!-- <div class="nested-menu">
+    <a mat-list-item (click)="showMenu2 = !showMenu2">
+      <mat-icon class="sidenav-icon">code</mat-icon>Dummy
+    </a>
+    <ul class="nested submenu" [class.expand]="showMenu2">
+      <li>
+        <a href="javascript:void(0)">
+          <span>Submenu</span>
+        </a>
+      </li>
+      <li>
+        <a href="javascript:void(0)">
+          <span>Submenu</span>
+        </a>
+      </li>
+      <li>
+        <a href="javascript:void(0)">
+          <span>Submenu</span>
+        </a>
+      </li>
+    </ul>
+  </div> -->
+</mat-nav-list>

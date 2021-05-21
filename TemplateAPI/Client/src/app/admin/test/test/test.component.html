@@ -1,0 +1,183 @@
+  
+<!-- Card container that binds all togather -->  
+
+<mat-card-title>  
+    Add User  
+</mat-card-title>  
+
+<!-- Actual content starts from here -->  
+<mat-card-content>
+
+
+
+<mat-card>  
+    
+      <mat-horizontal-stepper #stepper>
+        <mat-step [stepControl]="firstFormGroup">
+            <form [formGroup]="regiForm" (ngSubmit)="onFormSubmit(regiForm.value)">  
+                <table>  
+                    <tr>  
+                        <td>  
+                            <mat-form-field class="demo-full-width">  
+                                <input formControlName="UserName" matInput placeholder="User Name">  
+                            </mat-form-field>  
+                            <mat-error>  
+                                <span *ngIf="!regiForm.get('UserName').valid && regiForm.get('UserName').touched">Please enter User Name !!!</span>  
+                            </mat-error>  
+                        </td>  
+                        <td>  
+                            <mat-form-field class="demo-full-width">  
+                                <input formControlName="Password" matInput placeholder="Password">  
+                            </mat-form-field>  
+                            <mat-error>  
+                                <span *ngIf="!regiForm.get('Password').valid && regiForm.get('Password').touched">Please enter Password !!!</span>  
+                            </mat-error>  
+                        </td>  
+                    </tr>  
+                    <tr>  
+                        <td>  
+                            <mat-form-field class="demo-full-width">  
+                                <input formControlName="FirstName" matInput placeholder="First Name">  
+                            </mat-form-field>  
+                            <mat-error>  
+                                <span *ngIf="!regiForm.get('FirstName').valid && regiForm.get('FirstName').touched">Please enter First Name !!!</span>  
+                            </mat-error>  
+                        </td>  
+                        <td>  
+                            <mat-form-field class="demo-full-width">  
+                                <input formControlName="LastName" matInput placeholder="Last Name">  
+                            </mat-form-field>  
+                            <mat-error>  
+                                <span *ngIf="!regiForm.get('LastName').valid && regiForm.get('LastName').touched">Please enter Last Name !!!</span>  
+                            </mat-error>  
+                        </td>  
+                    </tr>  
+                   
+                    
+                   
+                    <tr>  
+                        <td colspan="2">  
+                            <mat-form-field class="demo-full-width">  
+                                <input formControlName="Email" matInput placeholder="Email">  
+                                <mat-hint>use like : demo@demo.com</mat-hint>  
+                                <mat-error>  
+                                    <span *ngIf="!regiForm.get('Email').valid && regiForm.get('Email').touched">Enter proper Email !!!</span>  
+                                </mat-error>  
+                            </mat-form-field>  
+                        </td>  
+                    </tr>  
+                    <tr>  
+                        <td colspan="2">  
+                            <mat-slide-toggle formControlName="IsAccepted" (change)="onChange($event)">Accept Terms & Conditions</mat-slide-toggle>  
+                        </td>  
+                    </tr>  
+                    <tr>  
+                        <td colspan="2" class="content-center">  
+                            <button mat-raised-button color="accent" [disabled]="!regiForm.valid || IsAccepted==0">Submit</button>  
+                        </td>  
+                    </tr>  
+                    <tr>  
+                        <td></td>  
+                    </tr>  
+                </table>  
+            </form>  
+        </mat-step>
+        <!-- <mat-step [stepControl]="secondFormGroup" label="Fill out your address">
+          <form [formGroup]="secondFormGroup">
+            <mat-form-field>
+              <mat-label>Address</mat-label>
+              <input matInput formControlName="secondCtrl" placeholder="Ex. 1 Main St, New York, NY"
+                     required>
+            </mat-form-field> -->
+            <!-- <div>
+              <button mat-button matStepperPrevious>Back</button>
+              <button mat-button matStepperNext>Next</button>
+            </div>
+          </form>
+        </mat-step> -->
+        <mat-step>
+          <ng-template matStepLabel>Done</ng-template>
+          <p>You are now done.</p>
+          <div>
+            <button mat-button matStepperPrevious>Back</button>
+            <button mat-button (click)="stepper.reset()">Reset</button>
+          </div>
+        </mat-step>
+      </mat-horizontal-stepper>
+
+
+
+
+    <!-- Title of an Card -->  
+   
+        <!-- <form [formGroup]="regiForm" (ngSubmit)="onFormSubmit(regiForm.value)">  
+            <table>  
+                <tr>  
+                    <td>  
+                        <mat-form-field class="demo-full-width">  
+                            <input formControlName="UserName" matInput placeholder="User Name">  
+                        </mat-form-field>  
+                        <mat-error>  
+                            <span *ngIf="!regiForm.get('UserName').valid && regiForm.get('UserName').touched">Please enter User Name !!!</span>  
+                        </mat-error>  
+                    </td>  
+                    <td>  
+                        <mat-form-field class="demo-full-width">  
+                            <input formControlName="Password" matInput placeholder="Password">  
+                        </mat-form-field>  
+                        <mat-error>  
+                            <span *ngIf="!regiForm.get('Password').valid && regiForm.get('Password').touched">Please enter Password !!!</span>  
+                        </mat-error>  
+                    </td>  
+                </tr>  
+                <tr>  
+                    <td>  
+                        <mat-form-field class="demo-full-width">  
+                            <input formControlName="FirstName" matInput placeholder="First Name">  
+                        </mat-form-field>  
+                        <mat-error>  
+                            <span *ngIf="!regiForm.get('FirstName').valid && regiForm.get('FirstName').touched">Please enter First Name !!!</span>  
+                        </mat-error>  
+                    </td>  
+                    <td>  
+                        <mat-form-field class="demo-full-width">  
+                            <input formControlName="LastName" matInput placeholder="Last Name">  
+                        </mat-form-field>  
+                        <mat-error>  
+                            <span *ngIf="!regiForm.get('LastName').valid && regiForm.get('LastName').touched">Please enter Last Name !!!</span>  
+                        </mat-error>  
+                    </td>  
+                </tr>  
+               
+                
+               
+                <tr>  
+                    <td colspan="2">  
+                        <mat-form-field class="demo-full-width">  
+                            <input formControlName="Email" matInput placeholder="Email">  
+                            <mat-hint>use like : demo@demo.com</mat-hint>  
+                            <mat-error>  
+                                <span *ngIf="!regiForm.get('Email').valid && regiForm.get('Email').touched">Enter proper Email !!!</span>  
+                            </mat-error>  
+                        </mat-form-field>  
+                    </td>  
+                </tr>  
+                <tr>  
+                    <td colspan="2">  
+                        <mat-slide-toggle formControlName="IsAccepted" (change)="onChange($event)">Accept Terms & Conditions</mat-slide-toggle>  
+                    </td>  
+                </tr>  
+                <tr>  
+                    <td colspan="2" class="content-center">  
+                        <button mat-raised-button color="accent" [disabled]="!regiForm.valid || IsAccepted==0">Submit</button>  
+                    </td>  
+                </tr>  
+                <tr>  
+                    <td></td>  
+                </tr>  
+            </table>  
+        </form>   -->
+   
+</mat-card>  
+
+</mat-card-content>  
